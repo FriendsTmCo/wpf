@@ -76,8 +76,8 @@ namespace System.Windows.Controls
         /// <value></value>
         public bool IsDefault
         {
-            get { return (bool) GetValue(IsDefaultProperty); } 
-            set { SetValue(IsDefaultProperty, BooleanBoxes.Box(value)); }
+            get => (bool) GetValue(IsDefaultProperty);
+            set => SetValue(IsDefaultProperty, BooleanBoxes.Box(value));
         }
 
         private static void OnIsDefaultChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) 
@@ -246,10 +246,9 @@ namespace System.Windows.Controls
         /// <summary>
         /// Creates AutomationPeer (<see cref="UIElement.OnCreateAutomationPeer"/>)
         /// </summary>
-        protected override System.Windows.Automation.Peers.AutomationPeer OnCreateAutomationPeer() 
-        {
-            return new System.Windows.Automation.Peers.ButtonAutomationPeer(this);
-        }
+        protected override System.Windows.Automation.Peers.AutomationPeer OnCreateAutomationPeer() =>        
+            new System.Windows.Automation.Peers.ButtonAutomationPeer(this);
+        
 
         /// <summary>
         /// This method is called when button is clicked.
@@ -291,11 +290,8 @@ namespace System.Windows.Controls
         //  1. Finds the correct initial size for the _effectiveValues store on the current DependencyObject
         //  2. This is a performance optimization
         //
-        internal override int EffectiveValuesInitialSize
-        {
-            get { return 42; }
-        }
-
+        internal override int EffectiveValuesInitialSize => 42;
+        
         #endregion
 
         #region Data
@@ -313,10 +309,7 @@ namespace System.Windows.Controls
 
         // Returns the DependencyObjectType for the registered ThemeStyleKey's default 
         // value. Controls will override this method to return approriate types.
-        internal override DependencyObjectType DTypeThemeStyleKey
-        {
-            get { return _dType; }
-        }
+        internal override DependencyObjectType DTypeThemeStyleKey => _dType;
 
         private static DependencyObjectType _dType;
 
